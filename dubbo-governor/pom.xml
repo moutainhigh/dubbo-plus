@@ -6,12 +6,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>dubbokeeper</artifactId>
+        <artifactId>dubbo-plus</artifactId>
         <groupId>com.dubboclub.dk</groupId>
         <version>1.0.1</version>
     </parent>
 
-    <artifactId>dubbokeeper-ui</artifactId>
+    <artifactId>dubbo-governor</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
