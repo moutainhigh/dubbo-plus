@@ -12,6 +12,7 @@
 	<modules>
 		<module>dubbo-governor</module>
 		<module>dubbo-monitor</module>
+		<module>dubbo-extension</module>
 	</modules>
 
 	<properties>
