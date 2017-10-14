@@ -1,4 +1,4 @@
-package com.dubboclub.dk.storage.model;
+package com.dubboclub.dk.monitor;
 
 import java.io.Serializable;
 

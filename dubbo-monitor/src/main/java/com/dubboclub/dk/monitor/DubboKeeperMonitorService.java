@@ -2,8 +2,6 @@ package com.dubboclub.dk.monitor;
 
 import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.monitor.MonitorService;
-import com.dubboclub.dk.storage.StatisticsStorage;
-import com.dubboclub.dk.storage.model.Statistics;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -15,12 +13,6 @@ public class DubboKeeperMonitorService implements MonitorService {
 	public static final String APPLICATION_TYPE="applicationType";
     public static final String TPS="tps";
     public static final String KBPS="kbps";
-
-	private StatisticsStorage statisticsStorage;
-
-	public void setStatisticsStorage(StatisticsStorage statisticsStorage) {
-		this.statisticsStorage = statisticsStorage;
-	}
 
 	@Override
 	public void collect(URL statisticsURL) {
@@ -70,7 +62,8 @@ public class DubboKeeperMonitorService implements MonitorService {
 			statistics.setRemoteType(Statistics.ApplicationType.CONSUMER);
 			statistics.setRemoteAddress(statisticsURL.getParameter(MonitorService.CONSUMER));
 		}
-        statisticsStorage.storeStatistics(statistics);
+		
+		//TODO 持久化：statistics
 	}
 	
 	@Override
