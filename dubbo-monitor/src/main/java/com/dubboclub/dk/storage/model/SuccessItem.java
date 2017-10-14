@@ -1,11 +1,10 @@
 package com.dubboclub.dk.storage.model;
 
-/**
- * Created by bieber on 2015/11/4.
- */
 public class SuccessItem extends BaseItem {
 
-    private Integer success;
+	private static final long serialVersionUID = -8609429913853547845L;
+	
+	private Integer success;
 
     public Integer getSuccess() {
         return success;

@@ -2,17 +2,13 @@ package com.dubboclub.dk.storage.model;
 
 import java.io.Serializable;
 
-/**
- * Created by bieber on 2015/11/17.
- */
 public abstract class BaseInfo implements Serializable {
-    private Long maxElapsed;
 
+	private static final long serialVersionUID = 7340734403532057486L;
 
+	private Long maxElapsed;
     private Long maxConcurrent;
-
     private Integer maxFault;
-
     private Integer maxSuccess;
 
     public Long getMaxElapsed() {
@@ -46,4 +42,5 @@ public abstract class BaseInfo implements Serializable {
     public void setMaxSuccess(Integer maxSuccess) {
         this.maxSuccess = maxSuccess;
     }
+    
 }

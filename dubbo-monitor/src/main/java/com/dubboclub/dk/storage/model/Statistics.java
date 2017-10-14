@@ -3,6 +3,9 @@ package com.dubboclub.dk.storage.model;
 import java.io.Serializable;
 
 public class Statistics implements Comparable<Statistics>,Serializable {
+
+	private static final long serialVersionUID = -330125690664204087L;
+	
 	//发生的时间戳
 	private Long timestamp;
 	private String serviceInterface;
@@ -171,7 +174,5 @@ public class Statistics implements Comparable<Statistics>,Serializable {
     public static enum ApplicationType{
 		CONSUMER,PROVIDER
 	}
-
-
 	 
 }
