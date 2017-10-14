@@ -2,17 +2,13 @@ package com.dubboclub.dk.storage.model;
 
 import java.io.Serializable;
 
-/**
- * Created by bieber on 2015/11/4.
- */
 public class BaseItem implements Serializable{
 
-    private String method;
+	private static final long serialVersionUID = 7405183443938322270L;
 
+	private String method;
     private String service;
-
     private Long timestamp;
-
     private String remoteType;
 
     public String getRemoteType() {
@@ -46,4 +42,5 @@ public class BaseItem implements Serializable{
     public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
+    
 }

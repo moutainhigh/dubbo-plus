@@ -3,9 +3,6 @@ package com.dubboclub.startup;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.webapp.WebAppContext;
 
-/**
- * Created by bieber on 2015/5/26.
- */
 public class JettyServer {
     
     public static void main(String[] args) throws Exception {
@@ -25,9 +22,9 @@ public class JettyServer {
                     e.printStackTrace();
                 }
             }
-
         });
         server.start();
         server.join();
     }
+    
 }

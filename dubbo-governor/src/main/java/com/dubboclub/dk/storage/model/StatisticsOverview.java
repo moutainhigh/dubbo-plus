@@ -3,17 +3,13 @@ package com.dubboclub.dk.storage.model;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by bieber on 2015/11/3.
- */
 public class StatisticsOverview implements Serializable {
 
-    private List<ConcurrentItem> concurrentItems;
+	private static final long serialVersionUID = 2834597462611045351L;
 
+	private List<ConcurrentItem> concurrentItems;
     private List<ElapsedItem> elapsedItems;
-
     private List<FaultItem> faultItems;
-
     private List<SuccessItem> successItems;
 
     public List<ConcurrentItem> getConcurrentItems() {
