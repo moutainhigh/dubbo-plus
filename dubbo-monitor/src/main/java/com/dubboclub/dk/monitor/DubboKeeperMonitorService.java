@@ -22,9 +22,6 @@ public class DubboKeeperMonitorService implements MonitorService {
 		this.statisticsStorage = statisticsStorage;
 	}
 
-	public DubboKeeperMonitorService() {
-	}
-
 	@Override
 	public void collect(URL statisticsURL) {
 		Statistics statistics = new Statistics();
