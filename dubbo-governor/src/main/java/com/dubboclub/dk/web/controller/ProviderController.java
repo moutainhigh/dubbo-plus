@@ -21,9 +21,6 @@ import com.dubboclub.dk.admin.model.Provider;
 import com.dubboclub.dk.admin.service.ProviderService;
 import com.dubboclub.dk.admin.sync.util.Tool;
 
-/**
- * Created by bieber on 2015/6/7.
- */
 @Controller
 @RequestMapping("/provider")
 public class ProviderController {
@@ -34,12 +31,15 @@ public class ProviderController {
     private OverrideService overrideService;
 
 
+    @ResponseBody
     @RequestMapping("/{serviceKey}/providers.htm")
-    public @ResponseBody List<Provider> listProviderByService(@PathVariable("serviceKey") String serviceKey) throws UnsupportedEncodingException {
+    public List<Provider> listProviderByService(@PathVariable("serviceKey") String serviceKey) throws UnsupportedEncodingException {
         return  providerService.listProviderByServiceKey(URLDecoder.decode(serviceKey,"utf-8"));
     }
+    
+    @ResponseBody
     @RequestMapping("/{applicationName}/{host}/providers.htm")
-    public @ResponseBody List<Provider> listProviderByHost(@PathVariable("applicationName")String applicationName,@PathVariable("host") String host){
+    public List<Provider> listProviderByHost(@PathVariable("applicationName")String applicationName,@PathVariable("host") String host){
         List<Provider> providers = providerService.listProviderByApplication(applicationName);
         Iterator<Provider> iterator = providers.iterator();
         List<Provider> providerList = new ArrayList<Provider>();
@@ -54,24 +54,24 @@ public class ProviderController {
         return providerList;
     }
     
+    @ResponseBody
     @RequestMapping("/{serviceKey}/service-readme.htm")
-    public @ResponseBody Map<String,Object> seriveReadMe(@PathVariable("serviceKey") String serviceKey) throws UnsupportedEncodingException {
+    public Map<String,Object> seriveReadMe(@PathVariable("serviceKey") String serviceKey) throws UnsupportedEncodingException {
     	Map<String,Object> re = new HashMap<String, Object>();
     	re.put("providers", providerService.listProviderByServiceKey(URLDecoder.decode(serviceKey,"UTF-8")));
     	re.put("registry", ConfigUtils.getProperty("dubbo.registry.address"));
     	return re;
     }
 
-
+    @ResponseBody
     @RequestMapping("/{id}/provider-detail.htm")
-    public @ResponseBody Provider loadProviderDetail(@PathVariable("id")long id){
+    public Provider loadProviderDetail(@PathVariable("id")long id){
         return providerService.getProviderById(id);
     }
 
-
+    @ResponseBody
     @RequestMapping(value = "/edit-provider.htm",method = RequestMethod.POST)
-    public @ResponseBody
-    BasicResponse editProvider(@RequestParam("parameters")String parameters,@RequestParam("id")long id){
+    public BasicResponse editProvider(@RequestParam("parameters")String parameters,@RequestParam("id")long id){
         BasicResponse basicResponse = new BasicResponse();
         basicResponse.setResult(BasicResponse.SUCCESS);
         Provider provider =providerService.getProviderById(id);
@@ -83,8 +83,9 @@ public class ProviderController {
         return basicResponse;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/{id}/{type}/operate.htm",method = RequestMethod.POST)
-    public @ResponseBody BasicResponse operate(@PathVariable("id") long id,@PathVariable("type")String type){
+    public BasicResponse operate(@PathVariable("id") long id,@PathVariable("type")String type){
         BasicResponse basicResponse = new BasicResponse();
         basicResponse.setResult(BasicResponse.SUCCESS);
         if("disable".equals(type)){
@@ -103,33 +104,34 @@ public class ProviderController {
         return basicResponse;
     }
 
+    @ResponseBody
     @RequestMapping(value = "/{type}/batch-operate.htm",method = RequestMethod.POST)
-    public @ResponseBody BasicResponse batchOperate(@PathVariable("type")String type,@RequestParam("ids") String ids){
+    public BasicResponse batchOperate(@PathVariable("type")String type,@RequestParam("ids") String ids){
         BasicResponse basicResponse = new BasicResponse();
         basicResponse.setResult(BasicResponse.SUCCESS);
         String[] idArray = StringUtils.split(ids,",");
-
         if("disable".equals(type)){
             for(String id:idArray){
                 providerService.disable(Long.parseLong(id));
             }
-        }else if("enable".equals(type)){
+        } else if("enable".equals(type)){
             for(String id:idArray){
                 providerService.enable(Long.parseLong(id));
             }
-        }else if("delete".equals(type)){
+        } else if("delete".equals(type)){
             for(String id:idArray){
                providerService.delete(Long.parseLong(id));
             }
-        }else if("halfWeight".equals(type)){
+        } else if("halfWeight".equals(type)){
             for(String id:idArray){
                 providerService.halfWeight(Long.parseLong(id));
             }
-        }else if("doubleWeight".equals(type)){
+        } else if("doubleWeight".equals(type)){
             for(String id:idArray){
                 providerService.doubleWeight(Long.parseLong(id));
             }
         }
+        
         return basicResponse;
     }
 

@@ -5,9 +5,6 @@ import com.alibaba.dubbo.common.utils.StringUtils;
 
 import java.util.Map;
 
-/**
- * Created by bieber on 2015/6/21.
- */
 public class WeightOverrideInfo extends  OverrideInfo{
 
     private int weight;
@@ -19,6 +16,7 @@ public class WeightOverrideInfo extends  OverrideInfo{
     public void setWeight(int weight) {
         this.weight = weight;
     }
+    
     public static WeightOverrideInfo valueOf(com.dubboclub.dk.admin.model.Override override){
         String weight = null;
         if(!org.apache.commons.lang.StringUtils.isEmpty(override.getParams())){
@@ -39,4 +37,5 @@ public class WeightOverrideInfo extends  OverrideInfo{
         }
         return overrideInfo;
     }
+    
 }

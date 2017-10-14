@@ -17,9 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by bieber on 2015/6/20.
- */
 @Controller
 @RequestMapping("/override")
 public class OverrideController {
@@ -30,10 +27,9 @@ public class OverrideController {
     @Autowired
     private ProviderService providerService;
 
-
-
+    @ResponseBody
     @RequestMapping("/provider/{serviceKey}/list.htm")
-    public @ResponseBody List<OverrideInfo>  listOverridesByProvider(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
+    public List<OverrideInfo>  listOverridesByProvider(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
         List<Override> overrideList =  overrideService.listByServiceKey(URLDecoder.decode(serviceKey,"UTF-8"));
         List<OverrideInfo> overrideInfos = new ArrayList<OverrideInfo>();
         for(Override override:overrideList){
@@ -42,9 +38,9 @@ public class OverrideController {
         return overrideInfos;
     }
 
-
+    @ResponseBody
     @RequestMapping("/provider/{serviceKey}/weight-list.htm")
-    public @ResponseBody List<WeightOverrideInfo>  listWeightOverridesByProvider(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
+    public List<WeightOverrideInfo>  listWeightOverridesByProvider(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
         List<Override> overrideList =  overrideService.listByServiceKey(URLDecoder.decode(serviceKey,"UTF-8"));
         List<WeightOverrideInfo> overrideInfos = new ArrayList<WeightOverrideInfo>();
         for(Override override:overrideList){
@@ -56,8 +52,9 @@ public class OverrideController {
         return overrideInfos;
     }
 
+    @ResponseBody
     @RequestMapping("/provider/{serviceKey}/loadbalance-list.htm")
-    public @ResponseBody List<LoadBalanceOverrideInfo>  listLoadBalanceOverridesByProvider(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
+    public List<LoadBalanceOverrideInfo>  listLoadBalanceOverridesByProvider(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
         List<Override> overrideList =  overrideService.listByServiceKey(URLDecoder.decode(serviceKey,"UTF-8"));
         List<LoadBalanceOverrideInfo> overrideInfos = new ArrayList<LoadBalanceOverrideInfo>();
         for(Override override:overrideList){
@@ -69,8 +66,9 @@ public class OverrideController {
         return overrideInfos;
     }
 
+    @ResponseBody
     @RequestMapping("/provider/{serviceKey}/methods.htm")
-    public @ResponseBody List<String> loadMethodsByServiceKey(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
+    public List<String> loadMethodsByServiceKey(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
         List<Provider> providers = providerService.listProviderByServiceKey(URLDecoder.decode(serviceKey, "UTF-8"));
         List<String> methods = new ArrayList<String>();
         if(providers.size()>0){
@@ -87,9 +85,9 @@ public class OverrideController {
         return methods;
     }
 
+    @ResponseBody
     @RequestMapping("/provider/{serviceKey}/saveOverride.htm")
-    public @ResponseBody
-    BasicResponse saveOverride(@PathVariable("serviceKey")String serviceKey,@RequestBody OverrideInfo overrideInfo) throws UnsupportedEncodingException {
+    public BasicResponse saveOverride(@PathVariable("serviceKey")String serviceKey,@RequestBody OverrideInfo overrideInfo) throws UnsupportedEncodingException {
         Override override = overrideInfo.toOverride();
         override.setService(URLDecoder.decode(serviceKey, "UTF-8"));
         BasicResponse response = new BasicResponse();
@@ -102,8 +100,9 @@ public class OverrideController {
         return response;
     }
 
+    @ResponseBody
     @RequestMapping("/{id}/{type}.htm")
-    public @ResponseBody BasicResponse operate(@PathVariable("id")Long id,@PathVariable("type")String type){
+    public BasicResponse operate(@PathVariable("id")Long id,@PathVariable("type")String type){
         BasicResponse response = new BasicResponse();
         if("enable".equals(type)){
             Override override = overrideService.getById(id);
@@ -123,8 +122,9 @@ public class OverrideController {
         return response;
     }
 
+    @ResponseBody
     @RequestMapping("/batch/{type}.htm")
-    public @ResponseBody BasicResponse batchOperate(@RequestParam("ids")String ids,@PathVariable("type")String type){
+    public BasicResponse batchOperate(@RequestParam("ids")String ids,@PathVariable("type")String type){
         BasicResponse response = new BasicResponse();
         String[] idArray = Constants.COMMA_SPLIT_PATTERN.split(ids);
         if("enable".equals(type)){
@@ -158,15 +158,16 @@ public class OverrideController {
     }
 
 
+    @ResponseBody
     @RequestMapping("/{id}/detail.htm")
-    public @ResponseBody OverrideInfo getOverrideById(@PathVariable("id")Long id){
+    public OverrideInfo getOverrideById(@PathVariable("id")Long id){
         Override override =  overrideService.getById(id);
         return OverrideInfo.valueOf(override);
     }
 
-
+    @ResponseBody
     @RequestMapping("/list.htm")
-    public @ResponseBody List<OverrideAbstractInfo> listOverrideInfos(){
+    public List<OverrideAbstractInfo> listOverrideInfos(){
         List<Provider> providers = providerService.listAllProvider();
         List<OverrideAbstractInfo> overrideAbstractInfos = new ArrayList<OverrideAbstractInfo>();
         for(Provider provider :providers){
@@ -180,6 +181,5 @@ public class OverrideController {
         }
         return overrideAbstractInfos;
     }
-
 
 }

@@ -1,21 +1,17 @@
 package com.dubboclub.dk.web.model;
 
 /**
- * Created by bieber on 2015/6/6.
  * 应用消费服务信息
+ * 
+ * @author lry
  */
 public class AppConsumeInfo extends BasicResponse{
 
     private String service;
-    
     private String serviceKey;
-
     private String providerName;
-
     private String owner;
-
     private String group;
-
     private String version;
     private String accessProtocol;
     private int providerCount;

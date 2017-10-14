@@ -4,21 +4,13 @@ import org.apache.zookeeper.data.Stat;
 
 import java.util.List;
 
-/**
- * Created by bieber on 2015/9/24.
- */
 public class SpyZooNode {
     
     private String parent;
-    
     private String name;
-    
     private String decodeName;
-    
     private List<SpyZooNode> childNodes;
-    
     private List<SpyZooNode> nodeList;
-    
     private Stat nodeStat;
 
     public List<SpyZooNode> getNodeList() {

@@ -1,11 +1,10 @@
 package com.dubboclub.dk.web.exception;
 
-/**
- * Created by bieber on 2015/6/15.
- */
 public class DataHadChangedException extends IllegalStateException {
 
-    public DataHadChangedException() {
+	private static final long serialVersionUID = 6769332433818524402L;
+
+	public DataHadChangedException() {
     }
 
     public DataHadChangedException(String s) {

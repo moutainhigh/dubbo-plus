@@ -1,14 +1,9 @@
 package com.dubboclub.dk.web.model;
 
-/**
- * Created by bieber on 2015/6/27.
- */
 public class OverrideAbstractInfo {
 
     private String applicationName;
-
     private String serviceKey;
-
     private int overrideCount;
 
     public String getApplicationName() {
