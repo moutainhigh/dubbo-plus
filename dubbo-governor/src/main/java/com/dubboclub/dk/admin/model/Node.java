@@ -1,12 +1,8 @@
 package com.dubboclub.dk.admin.model;
 
-/**
- * Created by bieber on 2015/6/6.
- */
 public class Node extends BasicModel {
 
     private String nodeAddress;
-
 
     public String getNodeAddress() {
         return nodeAddress;
@@ -21,7 +17,6 @@ public class Node extends BasicModel {
         if (o == null || getClass() != o.getClass()) return false;
 
         Node node = (Node) o;
-
         if (nodeAddress != null ? !nodeAddress.equals(node.nodeAddress) : node.nodeAddress != null) return false;
 
         return true;

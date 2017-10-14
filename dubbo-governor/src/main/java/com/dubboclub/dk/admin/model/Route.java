@@ -1,18 +1,3 @@
-/**
- * Project: dubbo.registry-1.1.0-SNAPSHOT
- * 
- * File Created at 2010-4-15
- * $Id: Route.java 184666 2012-07-05 11:13:17Z tony.chenl $
- * 
- * Copyright 2008 Alibaba.com Croporation Limited.
- * All rights reserved.
- *
- * This software is the confidential and proprietary information of
- * Alibaba Company. ("Confidential Information").  You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
- * with Alibaba.com.
- */
 package com.dubboclub.dk.admin.model;
 
 import com.alibaba.dubbo.common.Constants;
@@ -20,74 +5,39 @@ import com.alibaba.dubbo.common.URL;
 import java.util.List;
 import org.springframework.util.StringUtils;
 
-/**
- * Route
- * 
- * @author william.liangf
- */
 public class Route  extends BasicModel{
 	
-    private static final long serialVersionUID = -7630589008164140656L;
-
     public static final String ALL_METHOD = "*";
-
     // WHEN KEY
-
     public static final String KEY_METHOD = "method";
-    
     public static final String KEY_CONSUMER_APPLICATION = "consumer.application";
-    
     public static final String KEY_CONSUMER_GROUP = "consumer.cluster";
-    
     public static final String KEY_CONSUMER_VERSION = "consumer.version";
-    
     public static final String KEY_CONSUMER_HOST = "consumer.host";
-    
     public static final String KEY_CONSUMER_METHODS = "consumer.methods";
-    
     // THEN KEY
-    
     public static final String KEY_PROVIDER_APPLICATION = "provider.application";
-    
     public static final String KEY_PROVIDER_GROUP = "provider.cluster";
-    
     public static final String KEY_PROVIDER_PROTOCOL = "provider.protocol";
-    
     public static final String KEY_PROVIDER_VERSION = "provider.version";
-    
     public static final String KEY_PROVIDER_HOST = "provider.host";
-    
     public static final String KEY_PROVIDER_PORT = "provider.port";
-
     private long parentId; //默认为0
-    
     private String name;
-    
     private String service;
-    
     private String rule;
-    
     private String matchRule;
-    
     private String filterRule;
-
     private String scriptType;
-
     private int priority;
-    
     private String username;
-    
     private boolean enabled;
-
     private boolean force;
-
     private String type;
-    
     private List<Route> children;
     
     public Route() {
     }
-
 
     public String getScriptType() {
         return scriptType;

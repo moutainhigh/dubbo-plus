@@ -10,9 +10,6 @@ import com.dubboclub.dk.admin.sync.util.SyncUtils;
 
 import java.util.*;
 
-/**
- * Created by bieber on 2015/6/6.
- */
 public class ConsumerServiceImpl extends AbstractService implements ConsumerService {
 
     @Override
@@ -44,4 +41,5 @@ public class ConsumerServiceImpl extends AbstractService implements ConsumerServ
             }
         },Constants.CONSUMERS_CATEGORY,conditions);
     }
+    
 }

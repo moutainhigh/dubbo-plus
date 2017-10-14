@@ -17,13 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 
-/**
- * Created by bieber on 2015/6/4.
- */
 public class ApplicationServiceImpl extends AbstractService implements ApplicationService {
 
     private ProviderService providerService;
-
     private ConsumerService consumerService;
 
     @Override
@@ -104,4 +100,5 @@ public class ApplicationServiceImpl extends AbstractService implements Applicati
     public void setConsumerService(ConsumerService consumerService) {
         this.consumerService = consumerService;
     }
+    
 }

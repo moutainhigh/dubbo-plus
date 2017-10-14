@@ -14,11 +14,7 @@ import com.dubboclub.dk.admin.sync.util.Tool;
 
 import java.util.*;
 
-/**
- * Created by bieber on 2015/6/3.
- */
 public class ProviderServiceImpl extends AbstractService implements ProviderService {
-
 
     private OverrideService overrideService;
 
@@ -110,7 +106,6 @@ public class ProviderServiceImpl extends AbstractService implements ProviderServ
             update(SyncUtils.provider2URL(oldProvider),newURL);
         }
     }
-
 
     private Override generateDefaultOverride(Provider provider){
         Map<String,String> params = Tool.convertParametersMap(provider.getParameters());
@@ -212,4 +207,5 @@ public class ProviderServiceImpl extends AbstractService implements ProviderServ
     public void setOverrideService(OverrideService overrideService) {
         this.overrideService = overrideService;
     }
+    
 }

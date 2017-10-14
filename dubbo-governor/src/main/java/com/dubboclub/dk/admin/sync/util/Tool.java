@@ -1,17 +1,12 @@
 package com.dubboclub.dk.admin.sync.util;
 
-import com.alibaba.dubbo.common.Constants;
-import com.alibaba.dubbo.common.URL;
-import com.alibaba.dubbo.common.utils.StringUtils;
-
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by bieber on 2015/6/3.
- */
+import com.alibaba.dubbo.common.Constants;
+import com.alibaba.dubbo.common.utils.StringUtils;
+
 public class Tool {
-    
     
     public static Map<String,String> convertParametersMap(String params){
         return StringUtils.parseQueryString(params);
@@ -92,4 +87,5 @@ public class Tool {
             return "*".equals(pattern) || pattern.equals(value);
         }
     }
+    
 }
