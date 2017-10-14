@@ -3,7 +3,6 @@
 	<property resource="dubbo.properties" />
 	<substitutionProperty name="PROJECT_NAME" value="dubbokeeper" />
 	<substitutionProperty name="LOG_HOME" value="${monitor.log.home}" />
-
 	<timestamp key="byDate" datePattern="yyyyMMdd" />
 
 	<!-- web log -->
@@ -46,14 +45,14 @@
 		</encoder>
 	</appender>
 	<!--dubbo -->
-	<logger name="com.alibaba.dubbo" level="DEBUG">
+	<logger name="com.alibaba.dubbo" level="WARN">
 		<appender-ref ref="dubboRolling" />
 	</logger>
-	<!--dubbo -->
-	<logger name="com.dubboclub" level="DEBUG">
+	<!--dubbo-governor -->
+	<logger name="com.dubboclub" level="WARN">
 		<appender-ref ref="dkRolling" />
 	</logger>
-	<root level="DEBUG">
+	<root level="WARN">
 		<appender-ref ref="STDOUT" />
 	</root>
 </configuration>
