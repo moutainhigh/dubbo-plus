@@ -116,6 +116,7 @@ public class IndexController {
         return statistics;
     }
     
+    @ResponseBody
     @RequestMapping("/loadAppsDependencies.htm")
     public Map<String,List<Map<String,Object>>> loadAppsDependencies(){
         Map<String,List<Map<String,Object>>> statistics=new HashMap<String, List<Map<String, Object>>>();

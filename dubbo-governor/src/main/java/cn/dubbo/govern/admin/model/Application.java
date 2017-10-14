@@ -1,8 +1,12 @@
 package cn.dubbo.govern.admin.model;
 
-public class Application {
+import java.io.Serializable;
 
-    public static final short PROVIDER=1,CONSUMER=2, PROVIDER_AND_CONSUMER =3;
+public class Application implements Serializable {
+
+	private static final long serialVersionUID = 215729136619140330L;
+
+	public static final short PROVIDER=1,CONSUMER=2, PROVIDER_AND_CONSUMER =3;
 
     private String application; /* 应用名 */
     private String username; /* 提供者用户名 */
