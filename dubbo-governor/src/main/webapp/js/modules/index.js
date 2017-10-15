@@ -36,7 +36,7 @@ dubbokeeper.barDataset=[{
         icon:"icon-random"
     }]
 },{
-    barShowName:"M.S.A",
+    barShowName:"Monitor & Statistics",
     barIdentify:"monitor",
     barHref:"/monitor",
     barIconClass:"icon-bar-chart",
