@@ -4,9 +4,6 @@ import org.springframework.context.ApplicationContext;
 
 import java.util.Collection;
 
-/**
- * Created by bieber on 2015/6/1.
- */
 public class ContextUtils {
 
     private static ApplicationContext APPLICATION_CONTEXT;
@@ -22,7 +19,8 @@ public class ContextUtils {
         return APPLICATION_CONTEXT.getBean(type);
     }
 
-    public static<T extends  Object> T getBean(String beanId){
+    @SuppressWarnings("unchecked")
+	public static<T extends  Object> T getBean(String beanId){
         checkApplicationContext();
         return (T) APPLICATION_CONTEXT.getBean(beanId);
     }
@@ -32,10 +30,10 @@ public class ContextUtils {
         return APPLICATION_CONTEXT.getBeansOfType(type).values();
     }
 
-
     private static void checkApplicationContext(){
         if(APPLICATION_CONTEXT==null){
             throw new IllegalAccessError("must set ApplicatonContext first!");
         }
     }
+    
 }

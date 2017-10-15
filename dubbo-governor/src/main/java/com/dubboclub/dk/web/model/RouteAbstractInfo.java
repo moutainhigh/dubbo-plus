@@ -1,14 +1,9 @@
 package com.dubboclub.dk.web.model;
 
-/**
- * Created by bieber on 2015/8/1.
- */
 public class RouteAbstractInfo {
 
     private String applicationName;
-
     private String serviceKey;
-
     private int routeCount;
 
     public String getApplicationName() {

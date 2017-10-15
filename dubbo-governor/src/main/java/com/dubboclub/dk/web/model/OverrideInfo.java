@@ -4,23 +4,14 @@ import com.alibaba.dubbo.common.Constants;
 import com.dubboclub.dk.admin.model.Override;
 import org.apache.commons.lang.StringUtils;
 
-/**
- * Created by bieber on 2015/6/21.
- */
 public class OverrideInfo {
 
     private String application;
-
     private String parameters;
-
     private boolean enable;
-
     private Long id;
-
     private String address;
-
     private String serviceKey;
-
 
     public Override toOverride(){
         Override override = new Override();

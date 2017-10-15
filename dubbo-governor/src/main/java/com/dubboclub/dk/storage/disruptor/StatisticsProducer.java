@@ -4,11 +4,10 @@ import com.dubboclub.dk.storage.model.Statistics;
 import com.lmax.disruptor.RingBuffer;
 
 /**
- * StatisticsProducer
- * Created by bieber.bibo on 16/4/14
  * 统计数据的生产者,将统计的数据封装成disruptor的event
+ * 
+ * @author lry
  */
-
 public class StatisticsProducer {
 
     private final RingBuffer<StatisticsEvent> statisticsEventRingBuffer;

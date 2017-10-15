@@ -6,27 +6,23 @@ import com.dubboclub.dk.admin.model.Provider;
 
 import java.util.List;
 
-/**
- * Created by bieber on 2015/6/3.
- */
 public interface OverrideService {
 
-    public List<Override> listByProvider(Provider provider);
+    List<Override> listByProvider(Provider provider);
 
-    public List<Override> listByServiceKey(String serviceKey);
+    List<Override> listByServiceKey(String serviceKey);
 
-    public void update(Override override);
+    void update(Override override);
 
-    public Override getById(Long id);
+    Override getById(Long id);
 
-    public void delete(Override override);
+    void delete(Override override);
 
-    public void delete(Long id);
+    void delete(Long id);
 
-    public void add(Override override);
+    void add(Override override);
 
+    Provider configProvider(Provider provider);
 
-    public Provider configProvider(Provider provider);
-
-    public URL configProviderURL(Provider provider);
+    URL configProviderURL(Provider provider);
 }

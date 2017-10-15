@@ -23,9 +23,6 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
 
-/**
- * Created by bieber on 2015/6/4.
- */
 @Controller
 @RequestMapping("/app")
 public class ApplicationController {
@@ -39,9 +36,9 @@ public class ApplicationController {
     @Autowired
     private ConsumerService consumerService;
 
-
     /**
      * 查询所有应用列表信息
+     * 
      * @return
      */
     @RequestMapping("/list.htm")
@@ -51,6 +48,7 @@ public class ApplicationController {
 
     /**
      * 查询所有应用的服务列表数据
+     * 
      * @return
      */
     @RequestMapping("/services.htm")
@@ -58,7 +56,6 @@ public class ApplicationController {
         List<AppProvideInfo> provideInfoList = new ArrayList<AppProvideInfo>();
         Set<String> containMark = new HashSet<String>();
         StringBuilder protocolString = new StringBuilder();
-
         List<Provider> providers = providerService.listAllProvider();
         for(Provider provider : providers){
             if(containMark.contains(provider.getServiceKey())){
@@ -98,9 +95,9 @@ public class ApplicationController {
         return provideInfoList;
     }
 
-
     /**
      * 查询某个服务的消费者信息，从而可以确定该服务有多少消费者依赖它
+     * 
      * @param id
      * @return
      */
@@ -130,6 +127,7 @@ public class ApplicationController {
 
     /**
      * 查找该应用部署在哪些服务器节点上
+     * 
      * @param appName
      * @return
      */
@@ -140,6 +138,7 @@ public class ApplicationController {
 
     /**
      * 查找该应用发布哪些服务
+     * 
      * @param appName
      * @return
      */
@@ -154,7 +153,6 @@ public class ApplicationController {
                 continue;
             }
             containMark.add(provider.getServiceKey());
-
             AppProvideInfo provideInfo = new AppProvideInfo();
             provideInfo.setServiceKey(URLEncoder.encode(URLEncoder.encode(provider.getServiceKey(), "UTF-8"), "UTF-8"));
             provideInfo.setService(Tool.getInterface(provider.getServiceKey()));
@@ -179,6 +177,7 @@ public class ApplicationController {
 
     /**
      * 查找该应用需要消费哪些服务
+     * 
      * @param appName
      * @return
      */
@@ -195,7 +194,6 @@ public class ApplicationController {
             consumeInfo.setVersion(consumer.getVersion());
             Map<String,String> params = Tool.convertParametersMap(consumer.getParameters());
             String accessProtocol = params.get(Constants.PROTOCOL_KEY);
-            
             consumeInfo.setAccessProtocol(accessProtocol);
             if(providers.size()>0){
                 consumeInfo.setProviderName(providers. get(0).getApplication());
@@ -211,6 +209,7 @@ public class ApplicationController {
 
     /**
      * 查找该应用有哪些消费者在使用它提供的服务
+     * 
      * @param appName
      * @return
      */
@@ -238,6 +237,7 @@ public class ApplicationController {
 
     /**
      * 查找某个消费者在制定指定提供者应用哪些服务
+     * 
      * @param provider
      * @param consumer
      * @return
@@ -276,8 +276,5 @@ public class ApplicationController {
         }
         return provideInfos;
     }
-
-
-
 
 }

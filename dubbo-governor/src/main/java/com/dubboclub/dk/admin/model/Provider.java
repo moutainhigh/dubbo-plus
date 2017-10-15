@@ -1,18 +1,3 @@
-/**
- * Project: dubbo.registry-1.1.0-SNAPSHOT
- *
- * File Created at 2010-4-9
- * $Id: Provider.java 182846 2012-06-28 09:37:59Z tony.chenl $
- *
- * Copyright 2008 Alibaba.com Croporation Limited.
- * All rights reserved.
- *
- * This software is the confidential and proprietary information of
- * Alibaba Company. ("Confidential Information").  You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
- * with Alibaba.com.
- */
 package com.dubboclub.dk.admin.model;
 
 import com.alibaba.dubbo.common.Constants;
@@ -23,58 +8,31 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Provider
- *
- * @author william.liangf
- * @author tony.chenl
- */
 public class Provider extends BasicModel {
 
-    private static final long serialVersionUID = 5981342400350878171L;
-
     private String serviceKey;/* 提供者所提供的服务名称 */
-
     private String url; /* 提供者提供服务的地址 */
-
     private String parameters; /* 提供者提供服务的参数 */
-
     private String address; /* 提供者地址 */
-
     private String registry;/* 提供者连接的注册中心地址 */
-
     private boolean dynamic;          /* 是否为动态注册服务 */
-
     private boolean enabled;          /* 是否启用 */
-
     private int weight;          /* 权重 */
-
     private String application; /* 应用名 */
-
     private String username;      /* 提供者用户名 */
-
     private Date expired;   /*过期时间*/
-
     private long alived;    /*存活时间，单位秒*/
-
-
     private String group;
-
     private String version;
-
     private Override override;
-
     private List<Override> overrides;
-
 
     public Provider() {
     }
 
-
     public Provider(Long id) {
         super(id);
     }
-
 
     public String getGroup() {
         return group;
@@ -208,13 +166,9 @@ public class Provider extends BasicModel {
 
     public URL toUrl() {
         Map<String, String> serviceName2Map = Tool.serviceName2Map(getServiceKey());
-
-
         String u = getUrl();
         URL url = URL.valueOf(u + "?" + getParameters());
-
         url = url.addParameters(serviceName2Map);
-
         boolean dynamic = isDynamic();
         if (!dynamic) {
             url = url.addParameter(Constants.DYNAMIC_KEY, false);

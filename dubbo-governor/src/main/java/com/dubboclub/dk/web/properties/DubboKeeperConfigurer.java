@@ -6,9 +6,6 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * Created by bieber on 2015/6/1.
- */
 public class DubboKeeperConfigurer extends PropertyPlaceholderConfigurer {
 
     @Override
@@ -17,4 +14,5 @@ public class DubboKeeperConfigurer extends PropertyPlaceholderConfigurer {
         ConfigUtils.appendProperties(properties);
         return properties;
     }
+    
 }

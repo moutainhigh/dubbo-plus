@@ -6,9 +6,6 @@ import com.alibaba.dubbo.common.utils.StringUtils;
 
 import java.util.Map;
 
-/**
- * Created by bieber on 2015/6/21.
- */
 public class LoadBalanceOverrideInfo extends OverrideInfo {
 
     private String loadbalance;

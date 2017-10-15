@@ -7,6 +7,7 @@ import com.dubboclub.dk.admin.service.ProviderService;
 import com.dubboclub.dk.admin.service.RouteService;
 import com.dubboclub.dk.web.model.BasicResponse;
 import com.dubboclub.dk.web.model.RouteAbstractInfo;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,9 +17,6 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by bieber on 2015/7/25.
- */
 @Controller
 @RequestMapping("/route")
 public class RouterController {
@@ -29,23 +27,25 @@ public class RouterController {
     @Autowired
     private ProviderService providerService;
 
+    @ResponseBody
     @RequestMapping("provider/{serviceKey}/list.htm")
-    public @ResponseBody List<Route> queryRoutesByServiceKey(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
+    public List<Route> queryRoutesByServiceKey(@PathVariable("serviceKey")String serviceKey) throws UnsupportedEncodingException {
         serviceKey = URLDecoder.decode(serviceKey, "UTF-8");
         return routeService.listByServiceKey(serviceKey);
     }
 
+    @ResponseBody
     @RequestMapping("create.htm")
-    public @ResponseBody
-    BasicResponse createRoute(@RequestBody Route route){
+    public BasicResponse createRoute(@RequestBody Route route){
         BasicResponse response = new BasicResponse();
         response.setResult(BasicResponse.SUCCESS);
         routeService.createRoute(route);
         return response;
     }
 
+    @ResponseBody
     @RequestMapping("batch-{type}.htm")
-    public @ResponseBody BasicResponse batchDelete(@RequestParam("ids")String ids,@PathVariable("type") String type){
+    public BasicResponse batchDelete(@RequestParam("ids")String ids,@PathVariable("type") String type){
         BasicResponse response = new BasicResponse();
         String[] idArray = Constants.COMMA_SPLIT_PATTERN.split(ids);
         if("delete".equals(type)){
@@ -65,9 +65,9 @@ public class RouterController {
         return response;
     }
 
-
+    @ResponseBody
     @RequestMapping("{type}_{id}.htm")
-    public @ResponseBody BasicResponse delete(@PathVariable("type")String type,@PathVariable("id")Long id){
+    public BasicResponse delete(@PathVariable("type")String type,@PathVariable("id")Long id){
         BasicResponse response = new BasicResponse();
         response.setResult(BasicResponse.SUCCESS);
         if("delete".equals(type)){
@@ -82,15 +82,15 @@ public class RouterController {
         return response;
     }
 
+    @ResponseBody
     @RequestMapping("update.htm")
-    public @ResponseBody BasicResponse updateRoute(@RequestBody Route route){
+    public BasicResponse updateRoute(@RequestBody Route route){
         BasicResponse response = new BasicResponse();
         response.setResult(BasicResponse.SUCCESS);
         route.setRule(null);
         routeService.updateRoute(route);
         return response;
     }
-
 
     @ResponseBody
     @RequestMapping("list.htm")
@@ -109,10 +109,10 @@ public class RouterController {
         return routeAbstractInfos;
     }
 
+    @ResponseBody
     @RequestMapping("get_{id}.htm")
-    public @ResponseBody Route getRoute(@PathVariable("id")Long id){
+    public Route getRoute(@PathVariable("id")Long id){
         return routeService.getRoute(id);
     }
-
 
 }

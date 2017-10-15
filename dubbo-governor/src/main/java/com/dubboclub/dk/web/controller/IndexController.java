@@ -17,9 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by bieber on 2015/6/4.
- */
 @Controller
 public class IndexController {
 
@@ -32,15 +29,14 @@ public class IndexController {
     @Autowired
     private ConsumerService consumerService;
     
-    private static String[] APP_COLORS = {"#C12E34","#E6B600","#0098D9"};
-
     @RequestMapping("/index.htm")
     public String index(){
         return "index";
     }
 
+    @ResponseBody
     @RequestMapping("/loadAppsType.htm")
-    public @ResponseBody List<Integer> loadAppsTypeDoughnutChat(){
+    public List<Integer> loadAppsTypeDoughnutChat(){
         List<Application> applications = applicationService.getApplications();
         int providerCount=0;
         int consumerCount=0;
@@ -61,9 +57,9 @@ public class IndexController {
         return statistics;
     }
 
-
+    @ResponseBody
     @RequestMapping("/loadServiceProtocols.htm")
-    public  @ResponseBody Map<String,Integer> loadServiceProtocolDoughnutChat(){
+    public Map<String,Integer> loadServiceProtocolDoughnutChat(){
         List<Provider> providers = providerService.listAllProvider();
          Map<String,Integer> statistics = new HashMap<String, Integer>();
         for(Provider provider:providers){
@@ -77,8 +73,9 @@ public class IndexController {
         return statistics;
     }
 
+    @ResponseBody
     @RequestMapping("/loadAppServices.htm")
-    public  @ResponseBody Map<String,List<Integer>> loadApplicationServiceStatus(){
+    public Map<String,List<Integer>> loadApplicationServiceStatus(){
         List<Application> applications =  applicationService.getApplications();
         Map< String,List<Integer>> statistics =  new HashMap<String, List<Integer>>();
         for(Application application:applications){
@@ -105,8 +102,10 @@ public class IndexController {
         }
         return statistics;
     }
+    
+    @ResponseBody
     @RequestMapping("/loadAppNodes.htm")
-    public  @ResponseBody Map<String,Integer> loadApplicationNodes(){
+    public Map<String,Integer> loadApplicationNodes(){
         List<Application> applications =  applicationService.getApplications();
         Map< String,Integer> statistics =  new HashMap<String, Integer>();
         for(Application application:applications){
@@ -114,6 +113,7 @@ public class IndexController {
         }
         return statistics;
     }
+    
     @RequestMapping("/loadAppsDependencies.htm")
     public Map<String,List<Map<String,Object>>> loadAppsDependencies(){
         Map<String,List<Map<String,Object>>> statistics=new HashMap<String, List<Map<String, Object>>>();
@@ -157,7 +157,5 @@ public class IndexController {
         containedNodes.clear();
         return statistics;
     }
-    
-    
     
 }

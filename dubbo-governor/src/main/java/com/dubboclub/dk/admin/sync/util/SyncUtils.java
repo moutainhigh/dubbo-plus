@@ -1,18 +1,3 @@
-/**
- * Project: dubbo.governance-2.2.0-SNAPSHOT
- * 
- * File Created at Mar 31, 2012
- * $Id: SyncUtils.java 184666 2012-07-05 11:13:17Z tony.chenl $
- * 
- * Copyright 1999-2100 Alibaba.com Corporation Limited.
- * All rights reserved.
- *
- * This software is the confidential and proprietary information of
- * Alibaba Company. ("Confidential Information").  You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
- * with Alibaba.com.
- */
 package com.dubboclub.dk.admin.sync.util;
 
 import com.alibaba.dubbo.common.Constants;
@@ -26,19 +11,11 @@ import com.dubboclub.dk.admin.model.*;
 
 import java.util.*;
 
-/**
- * @author ding.lid
- */
 public class SyncUtils {
     
     public static final String SERVICE_FILTER_KEY = ".service";
-
     public static final String ADDRESS_FILTER_KEY = ".address";
-    
     public static final String ID_FILTER_KEY = ".id";
-
-
-
     private static final ConfiguratorFactory configuratorFactory = ExtensionLoader.getExtensionLoader(ConfiguratorFactory.class).getAdaptiveExtension();
 
     public static String generateServiceKey(URL url){
@@ -87,7 +64,6 @@ public class SyncUtils {
     	
         Long id = pair.getKey();
         URL url = pair.getValue();
-
         if (url == null)
             return null;
 
@@ -127,7 +103,6 @@ public class SyncUtils {
     	
         Long id = pair.getKey();
         URL url = pair.getValue();
-
         if (null == url)
             return null;
 
@@ -159,7 +134,6 @@ public class SyncUtils {
     	
         Long id = pair.getKey();
         URL url = pair.getValue();
-
         if (null == url)
             return null;
 
@@ -192,7 +166,6 @@ public class SyncUtils {
     	
         Long id = pair.getKey();
         URL url = pair.getValue();
-
         if (null == url)
             return null;
 
@@ -220,7 +193,6 @@ public class SyncUtils {
 
         o.setApplication(url.getParameter(Constants.APPLICATION_KEY, url.getUsername()));
         parameters.remove(Constants.VERSION_KEY);
-
         o.setParams(StringUtils.toQueryString(parameters));
 
         return o;

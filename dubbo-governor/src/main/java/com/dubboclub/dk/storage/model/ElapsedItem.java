@@ -1,12 +1,10 @@
 package com.dubboclub.dk.storage.model;
 
-/**
- * Created by bieber on 2015/11/4.
- */
 public class ElapsedItem extends  BaseItem{
 
-    private Long elapsed;
-
+	private static final long serialVersionUID = -5035173695442062998L;
+	
+	private Long elapsed;
 
     public Long getElapsed() {
         return elapsed;
@@ -15,4 +13,5 @@ public class ElapsedItem extends  BaseItem{
     public void setElapsed(Long elapsed) {
         this.elapsed = elapsed;
     }
+    
 }

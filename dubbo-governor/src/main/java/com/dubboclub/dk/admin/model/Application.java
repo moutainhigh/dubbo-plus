@@ -1,16 +1,11 @@
 package com.dubboclub.dk.admin.model;
 
-/**
- * Created by bieber on 2015/6/3.
- */
 public class Application {
 
     public static final short PROVIDER=1,CONSUMER=2, PROVIDER_AND_CONSUMER =3;
 
     private String application; /* 应用名 */
-
-    private String username;      /* 提供者用户名 */
-
+    private String username; /* 提供者用户名 */
     private short type;
 
     public short getType() {

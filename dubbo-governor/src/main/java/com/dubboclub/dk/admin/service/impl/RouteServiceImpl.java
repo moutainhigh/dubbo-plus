@@ -11,9 +11,6 @@ import com.dubboclub.dk.admin.sync.util.Tool;
 
 import java.util.List;
 
-/**
- * Created by bieber on 2015/7/25.
- */
 public class RouteServiceImpl extends AbstractService implements RouteService {
 
     @Override

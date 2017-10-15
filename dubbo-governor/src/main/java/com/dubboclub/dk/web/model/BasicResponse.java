@@ -1,14 +1,10 @@
 package com.dubboclub.dk.web.model;
 
-/**
- * Created by bieber on 2015/6/12.
- */
 public class BasicResponse {
 
     public static final short SUCCESS=0,FAILED=1;
 
     private short result=SUCCESS;
-
     private String memo;
 
     public short getResult() {

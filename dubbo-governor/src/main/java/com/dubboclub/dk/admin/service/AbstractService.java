@@ -11,9 +11,6 @@ import com.dubboclub.dk.admin.sync.util.Tool;
 import java.util.*;
 import java.util.concurrent.ConcurrentMap;
 
-/**
- * Created by bieber on 2015/6/3.
- */
 public abstract class AbstractService {
 
     private RegistryServerSync registryServerSync;
@@ -21,7 +18,6 @@ public abstract class AbstractService {
     protected void update(URL oldURL,URL newURL){
         registryServerSync.update(oldURL,newURL);
     }
-
 
     protected void delete(URL url){
         registryServerSync.unregister(url);
@@ -121,11 +117,8 @@ public abstract class AbstractService {
         return matchedData;
     }
 
-
     public interface ConvertURL2Entity<T extends BasicModel>{
-
         public T convert(Pair<Long, URL> pair);
     }
-
 
 }

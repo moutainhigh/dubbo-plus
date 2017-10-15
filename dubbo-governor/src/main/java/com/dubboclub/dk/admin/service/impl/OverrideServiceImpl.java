@@ -18,11 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 
-/**
- * Created by bieber on 2015/6/13.
- */
 public class OverrideServiceImpl extends AbstractService implements OverrideService {
-
 
     public List<com.dubboclub.dk.admin.model.Override> listByProvider(Provider provider) {
         List<Override> overrides = new ArrayList<Override>();
@@ -74,7 +70,6 @@ public class OverrideServiceImpl extends AbstractService implements OverrideServ
 
         return overrides;
     }
-
 
     public void update(Override override) {
         delete(override.getId());
@@ -142,6 +137,5 @@ public class OverrideServiceImpl extends AbstractService implements OverrideServ
         }
         return url;
     }
-
 
 }

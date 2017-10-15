@@ -1,15 +1,9 @@
 package com.dubboclub.dk.web.model;
 
-/**
- * Created by bieber on 2015/6/6.
- * 消费者信息
- */
 public class ConsumerInfo extends BasicResponse{
 
     private String application;
-
     private String username;
-
     private String parameters;
 
     public String getParameters() {

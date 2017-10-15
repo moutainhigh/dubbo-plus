@@ -1,18 +1,3 @@
-/**
- * Project: dubbo.registry-1.1.0-SNAPSHOT
- * 
- * File Created at 2010-4-9
- * $Id: Consumer.java 181192 2012-06-21 05:05:47Z tony.chenl $
- * 
- * Copyright 2008 Alibaba.com Croporation Limited.
- * All rights reserved.
- *
- * This software is the confidential and proprietary information of
- * Alibaba Company. ("Confidential Information").  You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
- * with Alibaba.com.
- */
 package com.dubboclub.dk.admin.model;
 
 import com.alibaba.dubbo.common.Constants;
@@ -23,48 +8,24 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Consumer
- * 
- * @author william.liangf
- */
 public class Consumer extends BasicModel {
 
-    private static final long serialVersionUID = -1140894843784583237L;
-
     private String serviceKey; /* 消费者所引用的服务名称 */
-
     private String parameters;
-    
     private String result;    /*路由结果*/
-
     private String address; /* 消费者地址 */
-    
 	private String registry; /* 消费者连接的注册中心地址 */
-    
     private String application; /* 应用名 */
-
     private String username;      /* 消费者用户名 */
-    
     private String statistics;    /* 服务调用统计信息 */
-    
     private Date collected;  /* 服务调用统计时间 */
-
     private String group;
-
     private String version;
-
-
 	private Override override;
-
 	private List<Override> overrides;
-
     private List<Route> routes;
-    
     private List<Provider> providers;
-    
 	private Date expired;   /*过期时间*/
-    
     private long alived;    /*存活时间，单位秒*/
 
     public Consumer() {

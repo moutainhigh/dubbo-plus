@@ -23,9 +23,6 @@ import java.net.URLDecoder;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * Created by bieber on 2015/9/24.
- */
 @Controller
 @RequestMapping("/peeper")
 public class ZooPeeperController implements InitializingBean{
@@ -45,15 +42,16 @@ public class ZooPeeperController implements InitializingBean{
             }
         }
     }
+    
+    @ResponseBody
     @RequestMapping("/listZookeepers.htm")
-    public  @ResponseBody
-    Collection<String> listZookeepers(){
+    public  Collection<String> listZookeepers(){
         return ZK_CLIENT_MAP.keySet();
     }
     
+    @ResponseBody
     @RequestMapping("/{zkConnect}/loadChildren.htm")
-    public @ResponseBody
-    SpyZooResponse listByParent(@RequestParam(value = "parent",defaultValue = "/",required = false)String parent,@PathVariable("zkConnect")String zkConnect){
+    public SpyZooResponse listByParent(@RequestParam(value = "parent",defaultValue = "/",required = false)String parent,@PathVariable("zkConnect")String zkConnect){
         SpyZooResponse response = new SpyZooResponse();
         try{
             ZooKeeper zooKeeper  = ZK_CLIENT_MAP.get(zkConnect);
@@ -85,8 +83,6 @@ public class ZooPeeperController implements InitializingBean{
         return response;
     }
     
-    
-    
     private class ZkWatcher implements Watcher{
         private String host;
 
@@ -113,7 +109,5 @@ public class ZooPeeperController implements InitializingBean{
             }
         }
     }
-    
-    
     
 }

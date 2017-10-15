@@ -1,21 +1,17 @@
 package com.dubboclub.dk.web.model;
 
 /**
- * Created by bieber on 2015/6/6.
  * 应用提供的服务信息
+ * 
+ * @author lry
  */
 public class AppProvideInfo extends BasicResponse{
 
     private String service;
-
     private String group;
-
     private String version;
-
     private String protocol;
-
     private String serviceKey;
-
     private long id;
 
     public String getServiceKey() {
