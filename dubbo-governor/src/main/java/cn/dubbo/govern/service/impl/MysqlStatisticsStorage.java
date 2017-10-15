@@ -37,18 +37,6 @@ public class MysqlStatisticsStorage implements StatisticsStorage {
     private static final ConcurrentHashMap<String,ApplicationStatisticsStorage> APPLICATION_STORAGES = new ConcurrentHashMap<String, ApplicationStatisticsStorage>();
 
     @Override
-    public void storeStatistics(Statistics statistics) {
-    	if(!APPLICATION_STORAGES.containsKey(statistics.getApplication().toLowerCase())){
-            ApplicationStatisticsStorage applicationStatisticsStorage  = new ApplicationStatisticsStorage(applicationMapper,statisticsMapper,mybatisSqlSessionFactoryBean,statistics.getApplication(),statistics.getType()== Statistics.ApplicationType.CONSUMER?0:1,true);
-            ApplicationStatisticsStorage old = APPLICATION_STORAGES.putIfAbsent(statistics.getApplication().toLowerCase(),applicationStatisticsStorage);
-            if(old==null){
-                applicationStatisticsStorage.start();
-            }
-        }
-        APPLICATION_STORAGES.get(statistics.getApplication().toLowerCase()).addStatistics(statistics);
-    }
-
-    @Override
     public List<Statistics> queryStatisticsForMethod(String application, String serviceInterface, String method, long startTime, long endTime) {
         return statisticsMapper.queryStatisticsForMethod(application,startTime,endTime,serviceInterface,method);
     }

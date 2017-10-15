@@ -17,8 +17,6 @@ public interface StatisticsStorage {
     String STORAGE_KEY="dubbo.monitor.storage";
     Logger LOGGER = LoggerFactory.getLogger("dubbokeeper-server");
     
-    void storeStatistics(Statistics statistics);
-
     /**
      * 查看某个应用的某个接口在制定区间内的监控情况
      * 
