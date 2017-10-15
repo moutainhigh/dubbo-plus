@@ -2,43 +2,26 @@ package com.dubboclub.dk.storage.model;
 
 import java.io.Serializable;
 
-/**
- * Created by bieber on 2015/9/29.
- */
 public class MethodMonitorOverview implements Serializable {
 
-    private String method;
+	private static final long serialVersionUID = -1612475422130520087L;
 
+	private String method;
     private Long maxElapsed;
-
     private Long maxConcurrent;
-
     private Long maxInput;
-
     private Long minInput;
-
     private Long maxOutput;
-
     private Long minOutput;
-
     private Long minConcurrent;
-
     private Long minElapsed;
-
     private int minFailure;
-
     private int maxFailure;
-
     private int minSuccess;
-
     private int maxSuccess;
-
     private double maxTps;
-
     private double minTps;
-
     private double maxKbps;
-
     private double minKbps;
 
     public int getMinFailure() {

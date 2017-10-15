@@ -17,15 +17,6 @@ import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.util.StringUtils;
 
-/**
- * @date: 2015/12/28.
- * @author:bieber.
- * @project:dubbokeeper.
- * @package:com.dubboclub.dk.storage.mysql.
- * @version:1.0.0
- * @fix:
- * @description: 描述功能
- */
 public class ApplicationStatisticsStorage  extends AbstractApplicationStatisticsStorage{
 
     private static final String APPLICATION_TEMPLATE="CREATE TABLE `statistics_{}` (\n" +
@@ -52,13 +43,9 @@ public class ApplicationStatisticsStorage  extends AbstractApplicationStatistics
             ") ENGINE=InnoDB DEFAULT CHARSET=utf8;\n";
 
     private StatisticsMapper statisticsMapper;
-
     private DataSource dataSource;
-
     private TransactionTemplate transactionTemplate;
-
     private ApplicationMapper applicationMapper;
-
     private int type;
 
     public ApplicationStatisticsStorage(ApplicationMapper applicationMapper,StatisticsMapper statisticsMapper,DataSource dataSource,TransactionTemplate transactionTemplate,String application,int type){
@@ -86,7 +73,6 @@ public class ApplicationStatisticsStorage  extends AbstractApplicationStatistics
         init();
         this.type=type;
     }
-
 
     private void init(){
         long end = System.currentTimeMillis();
@@ -149,8 +135,8 @@ public class ApplicationStatisticsStorage  extends AbstractApplicationStatistics
         });
     }
 
-
     public int getType() {
         return type;
     }
+    
 }

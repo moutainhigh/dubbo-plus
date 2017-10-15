@@ -2,17 +2,13 @@ package com.dubboclub.dk.storage.model;
 
 import java.io.Serializable;
 
-/**
- * Created by bieber on 2015/11/4.
- */
 public class OverviewItem implements Serializable {
 
-    private Long concurrent;
+	private static final long serialVersionUID = 6928874699040454875L;
 
+	private Long concurrent;
     private Long elapsed;
-
     private Long fault;
-
     private Long success;
 
     public Long getConcurrent() {

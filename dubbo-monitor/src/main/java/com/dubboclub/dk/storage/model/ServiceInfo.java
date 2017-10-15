@@ -1,11 +1,10 @@
 package com.dubboclub.dk.storage.model;
 
-/**
- * Created by bieber on 2015/11/7.
- */
 public class ServiceInfo extends BaseInfo {
-    private String name;
 
+	private static final long serialVersionUID = -7813940762202029490L;
+
+	private String name;
     private String remoteType;
 
 

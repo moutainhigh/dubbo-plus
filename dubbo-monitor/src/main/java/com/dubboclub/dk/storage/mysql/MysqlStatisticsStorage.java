@@ -14,28 +14,17 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @date: 2015/12/14.
- * @author:bieber.
- * @project:dubbokeeper.
- * @package:com.dubboclub.dk.storage.mysql.
- * @version:1.0.0
- * @fix:
- * @description: mysql监控数据存储器
+ * mysql监控数据存储器
+ * 
+ * @author lry
  */
 public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBean {
 
-
     private ApplicationMapper applicationMapper;
-
     private StatisticsMapper statisticsMapper;
-
     private DataSource dataSource;
-
     private TransactionTemplate transactionTemplate;
-
     private static final ConcurrentHashMap<String,ApplicationStatisticsStorage> APPLICATION_STORAGES = new ConcurrentHashMap<String, ApplicationStatisticsStorage>();
-
-
 
     @Override
     public void storeStatistics(Statistics statistics) {
@@ -79,6 +68,7 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
             methodMonitorOverview.setMethod(method);
             methodMonitorOverviews.add(methodMonitorOverview);
         }
+        
         return methodMonitorOverviews;
     }
 
@@ -94,6 +84,7 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
                 applicationInfo.setMaxSuccess(applicationStatisticsStorage.getMaxSuccess());
             }
         }
+        
         return applicationInfos;
     }
 
@@ -107,6 +98,7 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
         applicationInfo.setMaxElapsed(statisticsMapper.queryMaxElapsed(application,null, start, end));
         applicationInfo.setMaxFault(statisticsMapper.queryMaxFault(application,null, start, end));
         applicationInfo.setMaxSuccess(statisticsMapper.queryMaxSuccess(application,null, start, end));
+        
         return applicationInfo;
     }
 
@@ -121,6 +113,7 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
         fillFaultItem(statisticses,statisticsOverview);
         statisticses = statisticsMapper.queryApplicationOverview(application,"successCount",start,end);
         fillSuccessItem(statisticses,statisticsOverview);
+        
         return statisticsOverview;
     }
 
@@ -187,6 +180,7 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
         fillFaultItem(statisticses,statisticsOverview);
         statisticses = statisticsMapper.queryServiceOverview(application,service,"successCount",start,end);
         fillSuccessItem(statisticses,statisticsOverview);
+        
         return statisticsOverview;
     }
 
@@ -203,6 +197,7 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
             info.setMaxFault(fault==null?0:fault);
             info.setMaxSuccess(success==null?0:success);
         }
+        
         return serviceInfos;
     }
 
@@ -232,4 +227,5 @@ public class MysqlStatisticsStorage implements StatisticsStorage,InitializingBea
     public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
         this.transactionTemplate = transactionTemplate;
     }
+    
 }
