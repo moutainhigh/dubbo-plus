@@ -9,18 +9,18 @@ dubbokeeper.barDataset=[{
     barHref:"/statistics",
     barIconClass:"icon-dashboard"
 },{
-    barShowName:"Admin",
+    barShowName:"Governor",
     barIdentify:"admin",
     barHref:"/admin/apps",
     barIconClass:"glyphicon glyphicon-user",
     menus:[{
-        showName:"应用列表",
+        showName:"应用中心",
         identify:"admin/apps",
         href:"/admin/apps",
         icon:"icon-cloud",
         isHome:true
     },{
-        showName:"服务列表",
+        showName:"服务中心",
         identify:"admin/services",
         href:"/admin/services",
         icon:"icon-share",
@@ -36,7 +36,7 @@ dubbokeeper.barDataset=[{
         icon:"icon-random"
     }]
 },{
-    barShowName:"Monitor",
+    barShowName:"M.S.A",
     barIdentify:"monitor",
     barHref:"/monitor",
     barIconClass:"icon-bar-chart",
@@ -49,12 +49,12 @@ dubbokeeper.barDataset=[{
         isHome:true
     }]
 },{
-    barShowName:"ZooPeeper",
+    barShowName:"Zookeeper",
     barIdentify:"zoopeeper",
     barHref:"/zoopeeper",
     barIconClass:"icon-eye-open"
 },{
-    barShowName:"AboutUs",
+    barShowName:"About",
     barIdentify:"aboutus",
     barHref:"/aboutus",
     barIconClass:"icon-bookmark"
