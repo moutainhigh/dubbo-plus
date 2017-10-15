@@ -2,14 +2,10 @@ package com.dubboclub.startup;
 
 import java.util.concurrent.SynchronousQueue;
 
-/**
- * Created by bieber on 2015/9/29.
- */
 public class SynchronousDemo {
 
     public static void main(String[] args) throws InterruptedException {
         final SynchronousQueue<String> synchronousQueue = new SynchronousQueue<String>();
-        boolean start=false;
         Thread thread = new Thread(){
             @Override
             public void run() {
