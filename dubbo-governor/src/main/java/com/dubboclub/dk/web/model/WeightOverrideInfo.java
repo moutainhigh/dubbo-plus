@@ -19,10 +19,10 @@ public class WeightOverrideInfo extends  OverrideInfo{
     
     public static WeightOverrideInfo valueOf(com.dubboclub.dk.admin.model.Override override){
         String weight = null;
-        if(!org.apache.commons.lang.StringUtils.isEmpty(override.getParams())){
+        if(!StringUtils.isEmpty(override.getParams())){
             Map<String,String> parameters = StringUtils.parseQueryString(override.getParams());
             weight=parameters.get(Constants.WEIGHT_KEY);
-            if(org.apache.commons.lang.StringUtils.isEmpty(weight)||"null".equals(weight)){
+            if(StringUtils.isEmpty(weight)||"null".equals(weight)){
                 return null;
             }
         }
@@ -32,7 +32,7 @@ public class WeightOverrideInfo extends  OverrideInfo{
         overrideInfo.setEnable(override.isEnabled());
         overrideInfo.setId(override.getId());
         overrideInfo.setParameters(override.getParams());
-        if(!org.apache.commons.lang.StringUtils.isEmpty(weight)){
+        if(!StringUtils.isEmpty(weight)){
             overrideInfo.setWeight(Integer.parseInt(weight));
         }
         return overrideInfo;

@@ -1,8 +1,8 @@
 package com.dubboclub.dk.web.utils;
 
-import org.apache.commons.lang.StringUtils;
-
 import java.util.Properties;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class ConfigUtils {
 

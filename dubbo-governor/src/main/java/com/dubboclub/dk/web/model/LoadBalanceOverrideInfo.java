@@ -1,10 +1,10 @@
 package com.dubboclub.dk.web.model;
 
 
+import java.util.Map;
+
 import com.alibaba.dubbo.common.Constants;
 import com.alibaba.dubbo.common.utils.StringUtils;
-
-import java.util.Map;
 
 public class LoadBalanceOverrideInfo extends OverrideInfo {
 
@@ -31,11 +31,11 @@ public class LoadBalanceOverrideInfo extends OverrideInfo {
     public static LoadBalanceOverrideInfo valueOf(com.dubboclub.dk.admin.model.Override override){
         String loadBalance = null;
         String methods = null;
-        if(!org.apache.commons.lang.StringUtils.isEmpty(override.getParams())){
+        if(!StringUtils.isEmpty(override.getParams())){
             Map<String,String> parameters = StringUtils.parseQueryString(override.getParams());
             loadBalance=parameters.get(Constants.LOADBALANCE_KEY);
             methods=parameters.get(Constants.METHODS_KEY)==null? Constants.ANY_VALUE:parameters.get(Constants.METHODS_KEY);
-            if(org.apache.commons.lang.StringUtils.isEmpty(loadBalance)){
+            if(StringUtils.isEmpty(loadBalance)){
                 return null;
             }
         }

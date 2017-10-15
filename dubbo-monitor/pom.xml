@@ -53,12 +53,6 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
-		<!-- nettry -->
-		<dependency>
-			<groupId>net.dubboclub</groupId>
-			<artifactId>netty4</artifactId>
-		</dependency>
-
 		<!-- disruptor -->
 		<dependency>
 			<groupId>com.lmax</groupId>
@@ -110,51 +104,5 @@
 			<artifactId>fastjson</artifactId>
 		</dependency>
 	</dependencies>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>findbugs-maven-plugin</artifactId>
-				<version>2.5.3</version>
-				<configuration>
-					<xmlOutput>true</xmlOutput>
-					<xmlOutputDirectory>target/site</xmlOutputDirectory>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>2.3.2</version>
-					<configuration>
-						<encoding>UTF-8</encoding>
-						<fork>true</fork>
-						<meminitial>256m</meminitial>
-						<maxmem>256m</maxmem>
-						<source>1.7</source>
-						<target>1.7</target>
-						<compilerArgument></compilerArgument>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-		<plugins>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.5.3</version>
-				<configuration>
-					<finalName>${final-name}</finalName>
-					<descriptors>
-						<descriptor>${release.file}</descriptor>
-						<descriptor>assembly/release-ui.xml</descriptor>
-					</descriptors>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
